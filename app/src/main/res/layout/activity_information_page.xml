@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".InformationPage">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"></include>
+
+    <TextView
+        android:id="@+id/firbaseText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Information"
+        android:textColor="#FFF000"
+        android:textSize="36sp"
+        android:layout_margin="15dp"
+        android:fontFamily="monospace"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/toolbar"
+        android:gravity="center"/>
+
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/doneBtn"
+        android:layout_below="@+id/firbaseText2"
+        android:layout_margin="15dp">
+
+        <RelativeLayout
+            android:id="@+id/insideScrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000">
+
+            <TextView
+                android:id="@+id/licenseAgreement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="@string/information"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/doneBtn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="190dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_bg"
+        android:text="Done"
+        android:textColor="#000000" />
+
+</RelativeLayout>

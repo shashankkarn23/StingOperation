@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "165673643427",
+    "firebase_url": "https://sv-recorder.firebaseio.com",
+    "project_id": "sv-recorder",
+    "storage_bucket": "sv-recorder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165673643427:android:bd88bb79631e4c37",
+        "android_client_info": {
+          "package_name": "com.shashank.seconpart.svrecorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165673643427-2km3go89mcofuv8bus75doscaq12nh4m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shashank.seconpart.svrecorder",
+            "certificate_hash": "7698c7c9b89ce8198947dcac50bbd86a77bfedfd"
+          }
+        },
+        {
+          "client_id": "165673643427-73fq1r2l7o6g3mo64knigghjipsalgvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASsvSEFPMDbDX1pBBmWXT5N8y85RTc068"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165673643427-73fq1r2l7o6g3mo64knigghjipsalgvq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

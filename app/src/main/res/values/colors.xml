@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00a2ff</color>
+    <color name="colorPrimaryDark">#0183ce</color>
+    <color name="colorAccent">#ffcc00</color>
+
+    <color name="colorPrimary2">#0000FF</color>
+    <color name="PrimaryDark">#D32F2F</color>
+    <color name="Primary_light">#ffcdd2</color>
+    <color name="Primary_text">#212121</color>
+
+    <color name="Secondary">#727272</color>
+    <color name="divider">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text">#FFFFFF</color>
+    <color name="tabstrip">#B42929</color>
+
+
+</resources>
