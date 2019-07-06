@@ -3,11 +3,13 @@ package com.shashank.seconpart.svrecorder;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.renderscript.ScriptGroup;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -28,13 +30,24 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.UUID;
+
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.client.HttpClient;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.entity.InputStreamEntity;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
 
 public class RecordActivity extends AppCompatActivity {
 
@@ -97,8 +110,12 @@ public class RecordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_record);
 
         mStorage= FirebaseStorage.getInstance().getReference();
+        SharedPreferences sharedPreferences = getSharedPreferences("MYPREF", MODE_PRIVATE);
 
-        this.email=getIntent().getStringExtra("Key");
+        String data= sharedPreferences.getString("Key","No save Data");
+
+        this.email=data;
+        Toast.makeText(RecordActivity.this,email,Toast.LENGTH_LONG).show();
         //urlString = urlString + this.email + "&subject=RecorderApplication&message=";
         if (checkPermissionFromDevice())
             requestPermissions();
@@ -114,9 +131,7 @@ public class RecordActivity extends AppCompatActivity {
         noOfClips = findViewById(R.id.hideButton);
         mIntervalRecorder= findViewById(R.id.intervalRecorder);
 
-
         mProgress= new ProgressDialog(this);
-
 
         mIntervalRecorder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -224,9 +239,9 @@ public class RecordActivity extends AppCompatActivity {
             try{
                 Thread.sleep(addOfThree);
                 mediaRecorder.stop();
-                uploadAudio12();
+                uploadAudio12(pathSave,testPath);
                 Thread.sleep(2000);
-                deleteFunction(testPath);
+   //             deleteFunction(testPath);
 
                 Toast.makeText(RecordActivity.this, "Stop...", Toast.LENGTH_SHORT).show();
                 k = 0;
@@ -240,61 +255,24 @@ public class RecordActivity extends AppCompatActivity {
       //  unHideFunc();
         c=0;
     }
-    private void deleteFunction(String strValue){
+   // private void deleteFunction(String strValue){
 
-        File dir = new File(Environment.getExternalStorageDirectory()
-                .getAbsolutePath());
-        File file = new File(dir, strValue);
-        boolean deleted = file.delete();
-        if(deleted) {
-            Toast.makeText(RecordActivity.this, "Deleted",Toast.LENGTH_LONG).show();
-        }
+//        File dir = new File(Environment.getExternalStorageDirectory()
+//                .getAbsolutePath());
+//        File file = new File(dir, strValue);
+//        boolean deleted = file.delete();
+//        if(deleted) {
+//            Toast.makeText(RecordActivity.this, "Deleted",Toast.LENGTH_LONG).show();
+//        }
 
 
-    }
+    //}
 
-  private void uploadAudio12() {
+  private void uploadAudio12(String path,String testPath2) {
 
-        StorageReference filepath = mStorage.child("Audio").child(UUID.randomUUID().toString() + "_audio_record.3gp");
-        Uri uri= Uri.fromFile(new File(pathSave));
-        filepath.putFile(uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                if(task.isSuccessful()) {
-                    filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            urlString="";
-                            urlString="http://notesneighbour.com/PHP/firstPHP.php?email=";
-                            urlString = urlString + email + "&subject=RecorderApplication&message=";
-                            //String NonCipherText = "";
-                            String CipherText = "";
-                            MyRecorderSstrings model= new MyRecorderSstrings();
-                            message = "";
-                            message = uri.toString();
-
-                            s1.setMessage(message);
-                            Log.d("STATE",message);
-                            CipherText = ConvertintoASCIIString(message);
-                            Log.d("STATE",message);
-                            String type= "send";
-                            urlString = urlString + CipherText;
-
-                            s1.setURL(urlString);
-                            new RetrieveFeedTask(urlString).execute();
-                            message = "";
-
-                        }
-                    });
-                }
-                else{
-                    Toast.makeText(RecordActivity.this, "Not Success", Toast.LENGTH_LONG).show();
-
-                }
-            }
-        });
-
-    }
+      RetrieveFeedTask retrieveFeedTask = new RetrieveFeedTask("http://notesneighbour.com/upload.php",path,email,testPath2);
+      retrieveFeedTask.execute();
+  }
 
     private void setupMediaRecorder() {
         mediaRecorder = new MediaRecorder();
@@ -351,38 +329,101 @@ public class RecordActivity extends AppCompatActivity {
 
     }
 
-
-
-
-
 }
 
 class RetrieveFeedTask extends AsyncTask<String, Void, String> {
 
     String S = "";
-    RetrieveFeedTask(String Url){
-        this.S = Url;
+    String fileName = "";
+    String S2 = "";
+    String dataOutput = "";
+
+    private void deleteFunction(String strValue){
+
+        File dir = new File(Environment.getExternalStorageDirectory()
+                .getAbsolutePath());
+        File file = new File(dir, strValue);
+        boolean deleted = file.delete();
+
+    }
+
+    RetrieveFeedTask(String Url,String audioFile,String mail,String mfileName){
+        this.S = Url+"?to_email_address="+mail;
+        this.S2 = audioFile;
+        this.fileName=mfileName;
     }
     protected String doInBackground(String... urls) {
         HttpURLConnection urlConnection = null;
         MyRecorderSstrings s = new MyRecorderSstrings();
+        DataOutputStream dos = null;
+        String lineEnd = "\r\n";
+        String twoHyphens = "--";
+        String boundary = "*****";
+        int bytesRead, bytesAvailable, bufferSize;
+        byte[] buffer;
+        int maxBufferSize = 6 * 1024 * 1024;
         int status = 0;
         String statusMessage = "";
         URL url = null;
+        File audioFileFile = new File(this.S2);
+
 
         InputStream inStream = null;
         try {
+            FileInputStream fileInputStream = new FileInputStream(audioFileFile);
             url = new URL(this.S);
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod("GET");
+            urlConnection.setRequestMethod("POST");
             urlConnection.setDoOutput(true);
             urlConnection.setDoInput(true);
-            urlConnection.connect();
+            urlConnection.setUseCaches(false);
+            urlConnection.setRequestProperty("Connection","Keep-Alive");
+            urlConnection.setRequestProperty("ENCTYPE","multipart/form-data");
+            urlConnection.setRequestProperty("test",this.S2);
+            urlConnection.setRequestProperty("Content-Type",
+                    "multipart/form-data;boundary=" + boundary);
+            dos = new DataOutputStream(urlConnection.getOutputStream());
+
+            dos.writeBytes(twoHyphens + boundary + lineEnd);
+            dos.writeBytes("Content-Disposition: form-data; name=\"test\";filename=\""
+                    + this.S2 + "\"" + lineEnd);
+            dos.writeBytes(lineEnd);
+            bytesAvailable = fileInputStream.available();
+            bufferSize = Math.min(bytesAvailable, maxBufferSize);
+            buffer = new byte[bufferSize];
+            bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+
+            while (bytesRead > 0) {
+
+                dos.write(buffer, 0, bufferSize);
+                bytesAvailable = fileInputStream.available();
+                bufferSize = Math
+                        .min(bytesAvailable, maxBufferSize);
+                bytesRead = fileInputStream.read(buffer, 0,
+                        bufferSize);
+
+            }
+            dos.writeBytes(lineEnd);
+            dos.writeBytes(twoHyphens + boundary + twoHyphens
+                    + lineEnd);
+            //dataOutput = dos.toString();
+
             status = urlConnection.getResponseCode();
             statusMessage = urlConnection.getResponseMessage();
-            inStream = urlConnection.getInputStream();
-            BufferedReader bReader = new BufferedReader(new InputStreamReader(inStream));
+            String InputLine;
+            StringBuffer response = new StringBuffer();
+            BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+            while((InputLine = in.readLine())!=null){
+                response.append(InputLine);
 
+            }
+            String result  = response.toString();
+            result = "";
+            fileInputStream.close();
+            dos.flush();
+            dos.close();
+
+            deleteFunction(this.fileName);
 
         } catch (Exception e) {
             String str = e.toString();
@@ -400,7 +441,7 @@ class RetrieveFeedTask extends AsyncTask<String, Void, String> {
             }
         }
 
-        return "1";
+        return String.valueOf(status);
     }
 
     protected void onPostExecute(String feed) {

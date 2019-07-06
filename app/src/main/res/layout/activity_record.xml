@@ -97,6 +97,6 @@
                 android:background="@drawable/round_bg"
                 android:text="@string/custom_recorder"
                 android:textColor="#000000" />
-        </RelativeLayout>
+            </RelativeLayout>
     </LinearLayout>
 </ScrollView>
