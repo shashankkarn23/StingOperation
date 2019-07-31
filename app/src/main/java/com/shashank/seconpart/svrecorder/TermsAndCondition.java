@@ -16,6 +16,7 @@ public class TermsAndCondition extends AppCompatActivity {
 
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
+            toolbar.setTitle("SV Recorder");
             setSupportActionBar(toolbar);
         }
         btn1= findViewById(R.id.acceptBtn);

@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Record2Activity">
+    <LinearLayout
+        android:id="@+id/linearlayoutReccord2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".RecordActivity">
+        <include
+            layout="@layout/toolbar"
+            android:id="@+id/toolbar">
+        </include>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_marginTop="75dp"
+        android:id="@+id/relativeLayout"
+        android:layout_below="@+id/linearlayoutReccord2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/RecordingButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="85dp"
+            android:layout_marginRight="46dp"
+            android:background="@drawable/round_bg"
+            android:text="Start Recording"
+            android:textColor="#000000" />
 
-</android.support.constraint.ConstraintLayout>
+
+
+        <Button
+            android:id="@+id/CustomRecorder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/RecordingButton"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="46dp"
+            android:background="@drawable/round_bg"
+            android:text="Custom Settings"
+            android:textColor="#000000" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

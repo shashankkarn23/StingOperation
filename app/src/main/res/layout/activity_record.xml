@@ -16,33 +16,17 @@
             android:id="@+id/toolbar">
         </include>
         <RelativeLayout
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="155dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/hideButton"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginLeft="46dp"
-                android:layout_marginTop="75dp"
-                android:layout_marginRight="46dp"
-                android:gravity="center"
-                android:maxLength="2"
-                android:inputType="phone"
-                android:textSize="15sp"
-                android:background="@drawable/round_bg"
-                android:hint="Enter the number of audio clips"
-                android:textColorHint="#000000"
-                android:textColor="#000000" />
 
             <EditText
                 android:id="@+id/hourField"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_below="@+id/hideButton"
                 android:layout_marginStart="56dp"
                 android:layout_marginTop="75dp"
                 android:layout_marginEnd="270dp"
@@ -58,7 +42,6 @@
                 android:id="@+id/minuteField"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_below="@+id/hideButton"
                 android:layout_marginStart="156dp"
                 android:layout_marginTop="75dp"
                 android:layout_marginEnd="175dp"
@@ -74,7 +57,6 @@
                 android:id="@+id/secondField"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_below="@+id/hideButton"
                 android:layout_marginStart="250dp"
                 android:layout_marginTop="75dp"
                 android:layout_marginEnd="75dp"
@@ -95,7 +77,7 @@
                 android:layout_marginTop="75dp"
                 android:layout_marginRight="46dp"
                 android:background="@drawable/round_bg"
-                android:text="@string/custom_recorder"
+                android:text="Change Interval"
                 android:textColor="#000000" />
             </RelativeLayout>
     </LinearLayout>

@@ -22,22 +22,22 @@
 
     <string name="licenseAgreement2">Spy Voice Recorder is an Mobile application which is build with the following objectives : -</string>
     <string name="licenseAgreement3">
-        1. Enabling Parents to monitor their minor child’s voice activities.\n
-        2. Provide parental control to their minor’s handset devices.\n
-        3. By Default Spy Voice Recorder have access to your microphone and file system which will be used to send recorded voice to remote email provided.</string>
+        \n1. Enabling Parents to monitor their minor child’s voice activities.\n
+        \n2. Provide parental control to their minor’s handset devices.\n
+        \n3. By Default Spy Voice Recorder have access to your microphone and file system which will be used to send recorded voice to remote email provided.\n</string>
 
-    <string name="licenseAgreement4">However we don\'t ensure fully access as beside this app may use mobile network,call logs, WiFi and other necessary requirements for proper functionality.\n</string>
+    <string name="licenseAgreement4">\n However we don\'t ensure fully access as beside this app may use mobile network,call logs, WiFi and other necessary requirements for proper functionality.\n</string>
 
     <string name="licenseAgreement5">
         You should be legally authorized to use this kind of spy apps in your country, region legally. Spy Voice Recorder is not responsible for any illegal use of this app. Use this at your
 own risk and terms.\n 
 All the recorder data/voice is only available to individuals/organizations who\'s email is registered as send voice recording to email section.\n
-However the privacy and Data security is applied properly but in any case, if the data is leaked, tampered or misused by any third party SV Recorder is not responsible for any such cases. Use this app at your own risk and every individuals/organizations isself responsible for using this app in any manner. Spy Voice Recorder or SV Recorder can be termed as same wherever used. SV Recorder can change or update the terms and conditions partially or completely.\n
+However the privacy and Data security is applied properly but in any case, if the data is leaked, tampered or misused by any third party SV Recorder is not responsible for any such cases. Use this app at your own risk and every individuals/organizations is self responsible for using this app in any manner. Spy Voice Recorder or SV Recorder can be termed as same wherever used. SV Recorder can change or update the terms and conditions partially or completely.\n
     </string>
     <string name="information">
         SV Recorder is an application that turns your device into Spy recording device that is capable of recording audio and uploads the recorded audio to remote email address.\n
 By default SV Recorder uploads audio after interval of 2 hours. You can customize it in settings along with remote email. We advise you to continuously save recorded audio sent to remote email as it may not be
-        available second time as we don\'t backup any audio files. Use **22## to hide the application and **11## to display the application again. Please make sure the device must have an active internet connection in order to upload the file continuously. In case if any issue please write feedback at Play Store.</string>
+        available second time as we don\'t backup any audio files. Use **11## to hide the application and **22## to display the application again. Please make sure the device must have an active internet connection in order to upload the file continuously. In case if any issue please write feedback at Play Store.</string>
 
 
 </resources>

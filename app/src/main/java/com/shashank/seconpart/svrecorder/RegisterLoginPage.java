@@ -119,11 +119,12 @@ public class RegisterLoginPage extends AppCompatActivity {
     }
 
     public void nextButton(){
-            Intent intent1 = new Intent(RegisterLoginPage.this, RecordActivity.class);
+            Intent intent1 = new Intent(RegisterLoginPage.this, Record2Activity.class);
             startActivity(intent1);
      }
 
     public void SignInGoogle() {
+
         fireprogressBar.setVisibility(View.VISIBLE);
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, GOOGLE_SIGN);

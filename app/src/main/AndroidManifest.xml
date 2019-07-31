@@ -11,16 +11,17 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" /> <!-- <uses-permission android:name="android.permission-group.CALL_LOG" /> -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_firebase_logo"
-        android:label="@string/firebase_login"
+        android:label="SV Recorder"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_firebase_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Record2Activity"></activity>
+        <activity android:name=".Record2Activity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".InformationPage"
             android:screenOrientation="portrait" />
@@ -51,6 +52,13 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".AlarmToastReciever">
+
+        </receiver>
+
+        <service android:name=".BackgroundService"
+            android:launchMode="singleTop"
+            />
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.shashank.seconpart.svrecorder.fileprovider"

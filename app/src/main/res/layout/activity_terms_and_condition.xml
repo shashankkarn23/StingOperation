@@ -22,7 +22,7 @@
         android:gravity="center"
         android:text="Terms &amp; Conditions"
         android:textColor="@android:color/white"
-        android:textSize="36sp" />
+        android:textSize="30sp" />
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -42,21 +42,22 @@
                 android:id="@+id/licenseAgreement"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="monospace"
+                android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
                 android:text="USER LICENSE AGREEMENT"
                 android:textColor="#FFF000"
-                android:textSize="30sp" />
+                android:textSize="40sp" />
 
             <TextView
                 android:id="@+id/Terms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/licenseAgreement"
-                android:fontFamily="monospace"
+                android:fontFamily="sans-serif-light"
                 android:text="@string/licenseAgreement"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:textColor="#e5e5e5"
                 android:textSize="22sp" />
 
             <TextView
@@ -64,10 +65,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/Terms"
-                android:fontFamily="monospace"
+                android:fontFamily="sans-serif-light"
                 android:text="@string/licenseAgreement2"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:textColor="#e5e5e5"
                 android:textSize="22sp" />
 
             <TextView
@@ -86,10 +88,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/Terms3"
-                android:fontFamily="monospace"
+                android:fontFamily="sans-serif-light"
                 android:text="@string/licenseAgreement4"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:textColor="#e5e5e5"
                 android:textSize="22sp" />
 
 
@@ -98,11 +101,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/Terms4"
-                android:fontFamily="monospace"
+                android:fontFamily="sans-serif-light"
                 android:text="@string/licenseAgreement5"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp" />
+                android:gravity="center"
+                android:textColor="#e5e5e5"
+                android:textSize="22sp"/>
 
 
         </RelativeLayout>
@@ -113,7 +117,6 @@
         android:id="@+id/acceptBtn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignStart="@+id/firstlinear"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="15dp"
@@ -129,7 +132,6 @@
         android:id="@+id/declineBtn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignStart="@+id/firstlinear"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="230dp"

@@ -12,5 +12,5 @@
         android:layout_margin="45dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/random1" />
+        android:src="@drawable/ic_firebase_logo" />
 </LinearLayout>
